@@ -2,8 +2,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 text-center">
-                Website Ticketing Pesawat dan Kereta Api
-                dikembangkan oleh <a href="https://web.whatsapp.com/" target="_blank">Aslamiyah</a>.
+                website azmia craft<a href="https://web.whatsapp.com/" target="_blank">Dwi rohmatul</a>.
             </div>
         </div>
     </div>
