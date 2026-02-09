@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 text-center">
-                website azmia craft<a href="https://web.whatsapp.com/" target="_blank">Dwi rohmatul</a>.
+                Website Azmia Craft<a href="https://web.whatsapp.com/" target="_blank">Dwi Rohmatul Maulia</a>.
             </div>
         </div>
     </div>
