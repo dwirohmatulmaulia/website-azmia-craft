@@ -1,0 +1,41 @@
+<!-- jQuery -->
+<script src="../../concept-master/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+
+<!-- DataTables CSS -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+
+<!-- DataTables JS -->
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+
+<!-- bootstrap bundle js -->
+<script src="../../concept-master/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+<!-- slimscroll js -->
+<script src="../../concept-master/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+<!-- main js -->
+<script src="../../concept-master/assets/libs/js/main-js.js"></script>
+<!-- chart chartist js -->
+<script src="../../concept-master/assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
+<!-- sparkline js -->
+<script src="../../concept-master/assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
+<!-- morris js -->
+<script src="../../concept-master/assets/vendor/charts/morris-bundle/raphael.min.js"></script>
+<script src="../../concept-master/assets/vendor/charts/morris-bundle/morris.js"></script>
+<!-- chart c3 js -->
+<script src="../../concept-master/assets/vendor/charts/c3charts/c3.min.js"></script>
+<script src="../../concept-master/assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
+<script src="../../concept-master/assets/vendor/charts/c3charts/C3chartjs.js"></script>
+<script src="../../concept-master/assets/libs/js/dashboard-ecommerce.js"></script>
+
+<!-- Inisialisasi DataTables -->
+<script>
+    $(document).ready(function() {
+        $('#datatable').DataTable({
+            responsive: true,
+            autoWidth: false,
+            pageLength: 10
+        });
+    });
+</script>
+</body>
+
+</html>
