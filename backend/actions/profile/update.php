@@ -1,43 +1,79 @@
 <?php
 include '../../app.php';
-include './show.php';
+include './show.php'; // pastikan di dalamnya ada $profile dan $id
 
 if (isset($_POST['tombol'])) {
-    $imageNew = $profile->image;
-    $nama= escapeString($_POST['nama']);
-    $deskripsi= escapeString($_POST['deskripsi']);
+
+    $nama      = escapeString($_POST['nama']);
+    $deskripsi = escapeString($_POST['deskripsi']);
+    $alamat    = escapeString($_POST['alamat']);
+
     $storages = "../../../storages/profile/";
 
-    //cek apakah user mengupload gambar baru
-    if (!empty($_FILES['image']['tmp_name'])) {
-        $imageOld = $_FILES['image']['tmp_name'];
-        $imageNew = time() . '.png';
+    $bannerNew = $profile->banner;
+    $logoNew   = $profile->logo;
 
-        // hapus gambar lama jika ada
-        if (!empty($profile->image) && file_exists($storages . $profile->image)) {
-            unlink($storages . $profile->image);
+    /* =========================
+       UPDATE BANNER
+    ========================== */
+    if (!empty($_FILES['banner']['tmp_name'])) {
+
+        $bannerTmp  = $_FILES['banner']['tmp_name'];
+        $bannerExt  = pathinfo($_FILES['banner']['name'], PATHINFO_EXTENSION);
+        $bannerNew  = time() . "_banner." . $bannerExt;
+
+        // hapus banner lama
+        if (!empty($profile->banner) && file_exists($storages . $profile->banner)) {
+            unlink($storages . $profile->banner);
         }
 
-        // simpan gambar baru
-        move_uploaded_file($imageOld, $storages . $imageNew);
+        move_uploaded_file($bannerTmp, $storages . $bannerNew);
     }
 
-    $qUpdate = "UPDATE profile SET image='$imageNew', nama='$nama', deskripsi='$deskripsi' WHERE id='$id'";
+    /* =========================
+       UPDATE LOGO
+    ========================== */
+    if (!empty($_FILES['logo']['tmp_name'])) {
 
-    $result = mysqli_query($connect, $qUpdate) or die(mysqli_error($connect));
+        $logoTmp  = $_FILES['logo']['tmp_name'];
+        $logoExt  = pathinfo($_FILES['logo']['name'], PATHINFO_EXTENSION);
+        $logoNew  = time() . "_logo." . $logoExt;
+
+        // hapus logo lama
+        if (!empty($profile->logo) && file_exists($storages . $profile->logo)) {
+            unlink($storages . $profile->logo);
+        }
+
+        move_uploaded_file($logoTmp, $storages . $logoNew);
+    }
+
+    /* =========================
+       UPDATE DATABASE
+    ========================== */
+    $qUpdate = "UPDATE profile 
+                SET nama='$nama',
+                    deskripsi='$deskripsi',
+                    alamat='$alamat',
+                    banner='$bannerNew',
+                    logo='$logoNew'
+                WHERE id='$id'";
+
+    $result = mysqli_query($connect, $qUpdate);
+
     if ($result) {
-        echo " 
-         <script>    
+        echo "
+        <script>
             alert('Data berhasil diubah');
             window.location.href='../../pages/profile/index.php';
         </script>
-            ";
+        ";
     } else {
         echo "
-         <script>    
+        <script>
             alert('Data gagal diubah');
             window.location.href='../../pages/profile/create.php';
-         </script>
-     ";
+        </script>
+        ";
     }
 }
+?>

@@ -43,6 +43,9 @@ $result = mysqli_query($connect, $qkatalog) or die(mysqli_error($connect));
                                         <th>No</th>
                                         <th>Gambar</th>
                                         <th>Harga</th>
+                                        <th>Nama</th>
+                                        <th>Deskripsi</th>
+                                        <th>Kategori</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -56,7 +59,13 @@ $result = mysqli_query($connect, $qkatalog) or die(mysqli_error($connect));
                                         <td class="text-center">
                                             <img src="../../../storages/katalog/<?= $item->image ?>" alt="Gambar" width="100" height="100">
                                         </td>
-                                        <td class="text-center"><?= $item->harga?></td>
+                                       <td class="text-center">
+    Rp <?= number_format($item->harga, 0, ',', '.') ?>
+</td>
+
+                                        <td class="text-center"><?= $item->nama ?></td>
+                                        <td class="text-center"><?= $item->deskripsi ?></td>
+                                        <td class="text-center"><?= $item->kategori ?></td>
                                         <td>
                                                         <div class="d-flex justify-content-center gap-2">
 

@@ -4,7 +4,10 @@ include './show.php';
 
 if (isset($_POST['tombol'])) {
     $imageNew = $katalog->image;
-    $harga= escapeString($_POST['harga']);
+    $harga = preg_replace('/[^0-9]/', '', $_POST['harga']);
+    $deskripsi= escapeString($_POST['deskripsi']);
+    $nama= escapeString($_POST['nama']);
+    $kategori= escapeString($_POST['kategori']);
     $storages = "../../../storages/katalog/";
 
     //cek apakah user mengupload gambar baru
@@ -21,7 +24,7 @@ if (isset($_POST['tombol'])) {
         move_uploaded_file($imageOld, $storages . $imageNew);
     }
 
-    $qUpdate = "UPDATE katalog SET image='$imageNew', harga='$harga' WHERE id='$id'";
+    $qUpdate = "UPDATE katalog SET image='$imageNew', harga='$harga', deskripsi='$deskripsi', nama='$nama', kategori='$kategori' WHERE id='$id'";
 
     $result = mysqli_query($connect, $qUpdate) or die(mysqli_error($connect));
     if ($result) {

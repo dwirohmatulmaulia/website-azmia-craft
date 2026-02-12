@@ -5,11 +5,14 @@ if (isset($_POST['tombol'])) {
 
     $imageOld = $_FILES['image']['tmp_name'];
     $imageNew = time() . ".png";
-    $harga = escapeString($_POST['harga']);
+    $harga = preg_replace('/[^0-9]/', '', $_POST['harga']);
+    $deskripsi = escapeString($_POST['deskripsi']);
+    $nama = escapeString($_POST['nama']);
+    $kategori = escapeString($_POST['kategori']);
 
     $storages = "../../../storages/katalog/";
     if (move_uploaded_file($imageOld, $storages . $imageNew)) {
-        $qInsert = "INSERT INTO katalog(image, harga) VALUES('$imageNew', '$harga')";
+        $qInsert = "INSERT INTO katalog(image, harga, deskripsi, nama, kategori) VALUES('$imageNew', '$harga', '$deskripsi', '$nama', '$kategori')";
 
         mysqli_query($connect, $qInsert) or die(mysqli_error($connect));
         echo " 
