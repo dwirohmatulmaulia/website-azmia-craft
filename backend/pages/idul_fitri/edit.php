@@ -9,7 +9,7 @@ include '../../partials/navbar.php';
         <div class="row">
             <div class="col-xl-12">
                 <div class="page-header">
-                    <h2 class="pageheader-title">Tambah Data Katalog</h2>
+                    <h2 class="pageheader-title">Edit Data Idul_fitri</h2>
                 </div>
             </div>
         </div>
@@ -19,9 +19,20 @@ include '../../partials/navbar.php';
                 <div class="card m-4 p-3">
                     <div class="card-body">
 
-                        <form action="../../actions/katalog/store.php" 
+                        <?php include '../../actions/idul_fitri/show.php'; ?>
+
+                        <form action="../../actions/idul_fitri/update.php?id=<?= $idul_fitri->id ?>"
                               method="post" 
                               enctype="multipart/form-data">
+
+                            <!-- IMAGE -->
+                            <div class="mb-3">
+                                <img class="w-25 mb-2" 
+                                     src="../../../storages/idul_fitri/<?= $idul_fitri->image ?>"   
+                                     alt="">
+                                <label class="form-label">Gambar Produk</label>
+                                <input type="file" name="image" class="form-control" id="imageInput">
+                            </div>
 
                             <!-- NAMA -->
                             <div class="mb-3">
@@ -29,6 +40,7 @@ include '../../partials/navbar.php';
                                 <input type="text" 
                                        name="nama" 
                                        class="form-control"
+                                       value="<?= $idul_fitri->nama ?>"
                                        placeholder="Masukkan nama produk"
                                        required>
                             </div>
@@ -38,9 +50,18 @@ include '../../partials/navbar.php';
                                 <label class="form-label">Kategori</label>
                                 <select name="kategori" class="form-control" required>
                                     <option value="">-- Pilih Kategori --</option>
-                                    <option value="idul_fitri">Hampers Lebaran</option>
-                                    <option value="ulang_tahun">Hampers Ulang Tahun</option>
-                                    <option value="lamaran">Hampers lamaran</option>
+                                    <option value="idul_fitri" 
+                                        <?= $idul_fitri->kategori == 'idul_fitri' ? 'selected' : '' ?>>
+                                        idul_fitri
+                                    </option>
+                                    <option value="ulang_tahun" 
+                                        <?= $idul_fitri->kategori == 'Ulang_Tahun' ? 'selected' : '' ?>>
+                                      Ulang Tahun
+                                    </option>
+                                    <option value="lamaran" 
+                                        <?= $idul_fitri->kategori == 'lamaran' ? 'selected' : '' ?>>
+                                        lamaran
+                                    </option>
                                 </select>
                             </div>
 
@@ -51,17 +72,7 @@ include '../../partials/navbar.php';
                                           class="form-control" 
                                           rows="4"
                                           placeholder="Masukkan deskripsi produk"
-                                          required></textarea>
-                            </div>
-
-                            <!-- GAMBAR -->
-                            <div class="mb-3">
-                                <label for="imageInput" class="form-label">Gambar</label>
-                                <input type="file" 
-                                       name="image" 
-                                       class="form-control" 
-                                       id="imageInput" 
-                                       required>
+                                          required><?= $idul_fitri->deskripsi ?></textarea>
                             </div>
 
                             <!-- HARGA -->
@@ -71,13 +82,13 @@ include '../../partials/navbar.php';
                                        name="harga" 
                                        class="form-control" 
                                        id="hargaInput"
+                                       value="<?= number_format($idul_fitri->harga, 0, '', '.') ?>"
                                        placeholder="Masukkan harga" 
                                        required>
                             </div>
 
                             <button type="submit" class="btn btn-success" name="tombol">Simpan</button>
                             <a href="./index.php" class="btn btn-primary">Kembali</a>
-
                         </form>
 
                     </div>

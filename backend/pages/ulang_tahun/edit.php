@@ -9,7 +9,7 @@ include '../../partials/navbar.php';
         <div class="row">
             <div class="col-xl-12">
                 <div class="page-header">
-                    <h2 class="pageheader-title">Tambah Data Katalog</h2>
+                    <h2 class="pageheader-title">Tambah Data ulang_tahun</h2>
                 </div>
             </div>
         </div>
@@ -19,7 +19,7 @@ include '../../partials/navbar.php';
                 <div class="card m-4 p-3">
                     <div class="card-body">
 
-                        <form action="../../actions/katalog/store.php" 
+                        <form action="../../actions/ulang_tahun/store.php" 
                               method="post" 
                               enctype="multipart/form-data">
 

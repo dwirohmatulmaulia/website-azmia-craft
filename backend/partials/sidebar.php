@@ -31,6 +31,24 @@
                     </a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link" href="../idul_fitri/index.php">
+                        <i class="fa fa-fw fa-share-alt"></i> idul fitri
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="../ulang_tahun/index.php">
+                        <i class="fa fa-fw fa-share-alt"></i> ulang tahun
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="../lamaran/index.php">
+                        <i class="fa fa-fw fa-share-alt"></i> Lamaran
+                    </a>
+                </li>
+
             </ul>
         </div>
     </nav>

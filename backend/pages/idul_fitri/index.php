@@ -3,15 +3,15 @@ include '../../partials/header.php';
 include '../../partials/sidebar.php';
 include '../../partials/navbar.php';
 
-$katalog ="SELECT * FROM katalog";
-$result = mysqli_query($connect, $katalog) or die(mysqli_error($connect));
+$idul_fitri ="SELECT * FROM idul_fitri";
+$result = mysqli_query($connect, $idul_fitri) or die(mysqli_error($connect));
 ?>
 <div class="dashboard-wrapper">
     <div class="container-fluid dashboard-content">
         <div class="row">
             <div class="col-xl-12">
                 <div class="page-header">
-                    <h2 class="pageheader-title">Halaman Data Katalog</h2>
+                    <h2 class="pageheader-title">Halaman Data Idul_Fitri</h2>
                 </div>
             </div>
         </div>
@@ -25,7 +25,7 @@ $result = mysqli_query($connect, $katalog) or die(mysqli_error($connect));
                                 style="width:35px; height:35px; font-size:19px;">
                                 <i class="fa fa-ticket"></i>
                             </span>
-                            Tabel Katalog
+                            Tabel Idul_Fitri
                         </h5>
                         <a href="create.php" class="btn btn-primary btn-sm d-flex align-items-center">
                             <span class="rounded-circle bg-white text-primary d-flex align-items-center justify-content-center mr-2"
@@ -57,7 +57,7 @@ $result = mysqli_query($connect, $katalog) or die(mysqli_error($connect));
                                     <tr>
                                         <td class="text-center"><?= $no ?></td>
                                         <td class="text-center">
-                                            <img src="../../../storages/katalog/<?= $item->image ?>" alt="Gambar" width="100" height="100">
+                                            <img src="../../../storages/idul_fitri/<?= $item->image ?>" alt="Gambar" width="100" height="100">
                                         </td>
                                        <td class="text-center">
     Rp <?= number_format($item->harga, 0, ',', '.') ?>
@@ -75,7 +75,7 @@ $result = mysqli_query($connect, $katalog) or die(mysqli_error($connect));
                                                                 Edit
                                                             </a>
 
-                                                            <a href="../../actions/katalog/destroy.php?id=<?= $item->id ?>"
+                                                            <a href="../../actions/idul_fitri/destroy.php?id=<?= $item->id ?>"
                                                                 onclick="return confirm('Yakin hapus data ini?')"
                                                                 class="btn btn-danger btn-sm d-flex align-items-center gap-1">
                                                                 <i class="ti ti-trash"></i>
