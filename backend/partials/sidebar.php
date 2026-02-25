@@ -32,20 +32,20 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="../idul_fitri/index.php">
-                        <i class="fa fa-fw fa-share-alt"></i> idul fitri
+                    <a class="nav-link" href="../set_piring/index.php">
+                        <i class="fa fa-fw fa-share-alt"></i> set_piring
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="../ulang_tahun/index.php">
-                        <i class="fa fa-fw fa-share-alt"></i> ulang tahun
+                    <a class="nav-link" href="../set_teko/index.php">
+                        <i class="fa fa-fw fa-share-alt"></i> set_teko
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="../lamaran/index.php">
-                        <i class="fa fa-fw fa-share-alt"></i> Lamaran
+                    <a class="nav-link" href="../set_cangkir/index.php">
+                        <i class="fa fa-fw fa-share-alt"></i> set_cangkir
                     </a>
                 </li>
 

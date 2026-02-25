@@ -9,7 +9,7 @@ include '../../partials/navbar.php';
         <div class="row">
             <div class="col-xl-12">
                 <div class="page-header">
-                    <h2 class="pageheader-title">Tambah Data Katalog</h2>
+                    <h2 class="pageheader-title">Edit Data set_piring</h2>
                 </div>
             </div>
         </div>
@@ -19,10 +19,21 @@ include '../../partials/navbar.php';
                 <div class="card m-4 p-3">
                     <div class="card-body">
 
-                      <?php
-                    include '../../actions/katalog/show.php';
+
+                        <?php
+                    include '../../actions/set_piring/show.php';
                     ?>
-                    <form action="../../actions/katalog/update.php?id=<?= $katalog->id ?>" method="post" enctype="multipart/form-data">
+                    <form action="../../actions/set_piring/update.php?id=<?= $set_piring->id ?>" method="post" enctype="multipart/form-data">
+
+
+                            <!-- IMAGE -->
+                            <div class="mb-3">
+                                <img class="w-25 mb-2" 
+                                     src="../../../storages/set_piring/<?= $set_piring->image ?>"   
+                                     alt="">
+                                <label class="form-label">Gambar Produk</label>
+                                <input type="file" name="image" class="form-control" id="imageInput">
+                            </div>
 
                             <!-- NAMA -->
                             <div class="mb-3">
@@ -30,20 +41,12 @@ include '../../partials/navbar.php';
                                 <input type="text" 
                                        name="nama" 
                                        class="form-control"
+                                       value="<?= $set_piring->nama ?>"
                                        placeholder="Masukkan nama produk"
                                        required>
                             </div>
 
-                            <!-- KATEGORI -->
-                            <div class="mb-3">
-                                <label class="form-label">Kategori</label>
-                                <select name="kategori" class="form-control" required>
-                                    <option value="">-- Pilih Kategori --</option>
-                                    <option value="idul_fitri">Hampers Lebaran</option>
-                                    <option value="ulang_tahun">Hampers Ulang Tahun</option>
-                                    <option value="lamaran">Hampers lamaran</option>
-                                </select>
-                            </div>
+                           
 
                             <!-- DESKRIPSI -->
                             <div class="mb-3">
@@ -52,17 +55,7 @@ include '../../partials/navbar.php';
                                           class="form-control" 
                                           rows="4"
                                           placeholder="Masukkan deskripsi produk"
-                                          required></textarea>
-                            </div>
-
-                            <!-- GAMBAR -->
-                            <div class="mb-3">
-                                <label for="imageInput" class="form-label">Gambar</label>
-                                <input type="file" 
-                                       name="image" 
-                                       class="form-control" 
-                                       id="imageInput" 
-                                       required>
+                                          required><?= $set_piring->deskripsi ?></textarea>
                             </div>
 
                             <!-- HARGA -->
@@ -72,13 +65,13 @@ include '../../partials/navbar.php';
                                        name="harga" 
                                        class="form-control" 
                                        id="hargaInput"
+                                       value="<?= number_format($set_piring->harga, 0, '', '.') ?>"
                                        placeholder="Masukkan harga" 
                                        required>
                             </div>
 
                             <button type="submit" class="btn btn-success" name="tombol">Simpan</button>
                             <a href="./index.php" class="btn btn-primary">Kembali</a>
-
                         </form>
 
                     </div>

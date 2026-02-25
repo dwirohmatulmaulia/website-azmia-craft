@@ -1,9 +1,17 @@
 <?php   
-$qKatalog = "SELECT * FROM katalog LIMIT 6";
-$resultKatalog = mysqli_query($connect, $qKatalog) or die(mysqli_error($connect));
+$set_teko = "SELECT * FROM set_teko";
+$resultset_teko = mysqli_query($connect, $set_teko) or die(mysqli_error($connect));
 ?>
 
 <style>
+
+/* ================= SECTION ================= */
+.popular-product {
+    padding: 100px 0;
+    background: linear-gradient(180deg, #fff8f4 0%, #ffeef5 100%);
+    position: relative;
+    overflow: hidden;
+}
 
 /* Glow effect */
 .popular-product::before {
@@ -21,8 +29,7 @@ $resultKatalog = mysqli_query($connect, $qKatalog) or die(mysqli_error($connect)
 /* ================= TITLE ================= */
 .section-title {
     text-align: center;
-    margin-top: 60px;   /* tambahkan ini */
-    margin-bottom: 80px;
+    margin-bottom: 70px;
 }
 
 .section-title h2 {

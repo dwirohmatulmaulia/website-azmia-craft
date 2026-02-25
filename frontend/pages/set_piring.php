@@ -1,9 +1,17 @@
 <?php   
-$qKatalog = "SELECT * FROM katalog LIMIT 6";
-$resultKatalog = mysqli_query($connect, $qKatalog) or die(mysqli_error($connect));
+$qset_piring = "SELECT * FROM set_cangkir";
+$resultset_piring = mysqli_query($connect, $qset_piring) or die(mysqli_error($connect));
 ?>
 
 <style>
+
+/* ================= SECTION ================= */
+.popular-product {
+    padding: 100px 0;
+    background: linear-gradient(180deg, #fff8f4 0%, #ffeef5 100%);
+    position: relative;
+    overflow: hidden;
+}
 
 /* Glow effect */
 .popular-product::before {
@@ -21,8 +29,7 @@ $resultKatalog = mysqli_query($connect, $qKatalog) or die(mysqli_error($connect)
 /* ================= TITLE ================= */
 .section-title {
     text-align: center;
-    margin-top: 60px;   /* tambahkan ini */
-    margin-bottom: 80px;
+    margin-bottom: 70px;
 }
 
 .section-title h2 {
@@ -124,13 +131,13 @@ $resultKatalog = mysqli_query($connect, $qKatalog) or die(mysqli_error($connect)
 
         <div class="row">
 
-        <?php while ($item = $resultKatalog->fetch_object()): ?>
+        <?php while ($item = $resultset_piring->fetch_object()): ?>
             <!-- Desktop jadi 3 kolom supaya card lebih besar -->
             <div class="col-12 col-sm-6 col-lg-4 mb-5">
                 <div class="card product-card">
                     
                     <img 
-                        src="../storages/katalog/<?= $item->image ?>" 
+                        src="../storages/set_piring/<?= $item->image ?>" 
                         alt="<?= $item->nama ?>">
 
                     <div class="card-body text-center">

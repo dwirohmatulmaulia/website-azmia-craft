@@ -9,7 +9,7 @@ include '../../partials/navbar.php';
         <div class="row">
             <div class="col-xl-12">
                 <div class="page-header">
-                    <h2 class="pageheader-title">Tambah Data Katalog</h2>
+                    <h2 class="pageheader-title">Tambah Data set_teko</h2>
                 </div>
             </div>
         </div>
@@ -19,10 +19,9 @@ include '../../partials/navbar.php';
                 <div class="card m-4 p-3">
                     <div class="card-body">
 
-                      <?php
-                    include '../../actions/katalog/show.php';
-                    ?>
-                    <form action="../../actions/katalog/update.php?id=<?= $katalog->id ?>" method="post" enctype="multipart/form-data">
+                        <form action="../../actions/set_teko/store.php" 
+                              method="post" 
+                              enctype="multipart/form-data">
 
                             <!-- NAMA -->
                             <div class="mb-3">
@@ -32,17 +31,6 @@ include '../../partials/navbar.php';
                                        class="form-control"
                                        placeholder="Masukkan nama produk"
                                        required>
-                            </div>
-
-                            <!-- KATEGORI -->
-                            <div class="mb-3">
-                                <label class="form-label">Kategori</label>
-                                <select name="kategori" class="form-control" required>
-                                    <option value="">-- Pilih Kategori --</option>
-                                    <option value="idul_fitri">Hampers Lebaran</option>
-                                    <option value="ulang_tahun">Hampers Ulang Tahun</option>
-                                    <option value="lamaran">Hampers lamaran</option>
-                                </select>
                             </div>
 
                             <!-- DESKRIPSI -->
